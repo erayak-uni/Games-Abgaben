@@ -1,37 +1,33 @@
-# HL3 Prototyp Erweiterung
 
 ## Abgabe-Links
 
 - GitHub Repository: https://github.com/erayak-uni/Games-Abgaben
-- Video: wird separat eingereicht
+- Video: Auf Youtube
 
-## Projektbeschreibung
+## ProBuilder-Level
 
-In diesem Unity-Projekt wurde der HL3-Prototyp um ein eigenes ProBuilder-Level, erweitertes First-Person-Movement und Bot-Gameplay erweitert.
-
-Das Level enthält mehrere Ebenen, Brücken, Plattformen, Wandbereiche, Deckungselemente, Trampoline und Grapple-Punkte. Dadurch unterstützt das Level vertikales Gameplay und schnelle Bewegungen. Mit ProBuilder wurden verschiedene Strukturen wie Wände, Plattformen, Durchgänge, erhöhte Ebenen, Inset-ähnliche Wanddetails und extrudierte Elemente erstellt.
+Das Level wurde als Arena mit Innen- und Außenbereichen aufgebaut. Es enthält mehrere Ebenen, Brücken, Plattformen, Wandbereiche, Deckungselemente, Trampoline und Grapple-Punkte. Dies wurde mit Hilfe von Pro Builder Elementen umgesetzt
 
 ## Player Movement
 
-- WASD-Bewegung
-- Maussteuerung
+Der Spieler besitzt einen First-Person-Controller mit erweiterten Bewegungsfunktionen:
+
+- normales Laufen mit WASD
+- Maussteuerung zum Umschauen
 - Double Jump
 - Dash
-- Grappling Hook mit sichtbarem Seil
-- Trampoline
-- Wall Hold, Wall Jump und Klettern
+- Spiderman Netze
+- Trampoline, die den Spieler nach oben katapultieren
+- Wall climb
 
-## Kampf und Bots
+## Kampf-System
 
-Der Spieler kann schießen und Bomben werfen. Bots verwenden NavMesh zur Navigation, erkennen den Spieler, halten Abstand, schießen bei Sichtkontakt und weichen zurück, wenn der Spieler zu nah kommt. Spieler und Bots besitzen Lebenspunkte, können Schaden nehmen, sterben und respawnen.
+Der Spieler kann mit der linken Maustaste schießen. Treffer verursachen Schaden an Bots. Zusätzlich kann der Spieler Bomben werfen, die nach kurzer Zeit explodieren und Flächenschaden verursachen.
 
-## Steuerung
+## Bot-System
 
-- WASD: Bewegen
-- Maus: Umschauen
-- Leertaste: Springen / Double Jump
-- Left Shift: Dash
-- Rechte Maustaste: Grappling Hook
-- E: Wand festhalten / klettern
-- Linke Maustaste: Schießen
-- Q: Bombe werfen
+Die Bots verwenden NavMesh zur Navigation. Sie erkennen den Spieler in einem bestimmten Bereich und greifen bei Sichtkontakt mit Projektilen an. Bots besitzen Lebenspunkte, können Schaden nehmen, sterben und nach einer Zeit respawnen sie wieder
+
+## Animationen
+
+Für die Bots wurde eine einfache Animationslogik umgesetzt. Sie zeigt grundlegende Zustände wie Idle, Laufen, Angriff, Treffer und Sterben. Dadurch sind die Bot-Zustände im Spiel visuell erkennbar
