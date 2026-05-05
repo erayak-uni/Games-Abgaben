@@ -19,8 +19,6 @@ namespace HL3.AI
         [SerializeField] private float fieldOfView = 110f;
         [SerializeField] private float attackDistance = 2.2f;
         [SerializeField] private float preferredCombatDistance = 10f;
-        [SerializeField] private float retreatDistance = 5f;
-        [SerializeField] private float retreatStepDistance = 7f;
         [SerializeField] private float memorySeconds = 3f;
 
         [Header("Combat")]
@@ -101,12 +99,7 @@ namespace HL3.AI
             if (shouldEngage)
             {
                 float distance = Vector3.Distance(transform.position, target.position);
-                if (seesTarget && distance <= retreatDistance)
-                {
-                    RetreatFromTarget();
-                    TryRangedAttack();
-                }
-                else if (seesTarget && useRangedAttack && distance <= rangedAttackDistance)
+                if (seesTarget && useRangedAttack && distance <= rangedAttackDistance)
                 {
                     if (distance > preferredCombatDistance)
                     {
@@ -122,10 +115,6 @@ namespace HL3.AI
                 else if (distance <= attackDistance && seesTarget)
                 {
                     Attack();
-                }
-                else if (distance <= retreatDistance)
-                {
-                    RetreatFromTarget();
                 }
                 else
                 {
@@ -285,38 +274,6 @@ namespace HL3.AI
             }
 
             agent.isStopped = true;
-            FaceTargetFlat();
-        }
-
-        private void RetreatFromTarget()
-        {
-            if (!agent.isOnNavMesh)
-            {
-                PlaceOnNavMeshIfNeeded();
-                if (!agent.isOnNavMesh)
-                {
-                    return;
-                }
-            }
-
-            Vector3 away = transform.position - target.position;
-            away.y = 0f;
-            if (away.sqrMagnitude < 0.01f)
-            {
-                away = -transform.forward;
-            }
-
-            Vector3 desired = transform.position + away.normalized * retreatStepDistance;
-            if (NavMesh.SamplePosition(desired, out NavMeshHit hit, retreatStepDistance, NavMesh.AllAreas))
-            {
-                agent.isStopped = false;
-                agent.SetDestination(hit.position);
-            }
-            else
-            {
-                agent.isStopped = true;
-            }
-
             FaceTargetFlat();
         }
 
