@@ -1,0 +1,35 @@
+# Unity generated folders
+/Library/
+/Temp/
+/Obj/
+/Build/
+/Builds/
+/Logs/
+/UserSettings/
+
+# Visual Studio / Rider / OS files
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+Thumbs.db
+
+# Unity cache / crash files
+sysinfo.txt
+*.stackdump
+
+# Large local recordings/exports
+*.mp4
+*.mov
+*.avi
+*.mkv
